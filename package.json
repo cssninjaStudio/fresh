@@ -37,7 +37,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bulma": "0.7",
+    "bulma": "^0.7.5",
     "feather-icons": "^4.7.0"
   }
 }
