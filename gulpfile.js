@@ -25,7 +25,7 @@ function watch() {
 
 // Erases the dist folder
 function reset() {
-    return el(['bulma/*', 'scss/*', 'assets/css/*', 'assets/fonts/*', 'images/*']);
+    return del(['bulma/*', 'scss/*', 'assets/css/*', 'assets/fonts/*', 'images/*']);
 };
 exports.reset = reset;
 
