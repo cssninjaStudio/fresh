@@ -1,61 +1,55 @@
 var gulp = require('gulp');
-var clean = require('gulp-clean');
+var merge = require('merge-stream');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var mq4HoverShim = require('mq4-hover-shim');
-var rimraf = require('rimraf').sync;
+var del = require('del');
 var browser = require('browser-sync');
 var panini = require('panini');
 var concat = require('gulp-concat');
 var port = process.env.SERVER_PORT || 8080;
 var nodepath =  'node_modules/';
 
-// Starts a BrowerSync instance
-gulp.task('server', ['build'], function(){
-    browser.init({server: './_site', port: port});
-});
-
 // Watch files for changes
-gulp.task('watch', function() {
-    gulp.watch('scss/**/*', ['compile-scss', browser.reload]);
-    gulp.watch('sass/**/*', ['compile-sass', browser.reload]);
-    gulp.watch('js/**/*', ['copy-js', browser.reload]);
-    gulp.watch('html/pages/**/*', ['compile-html']);
-    gulp.watch('images/**/*', ['copy-images', browser.reload]);
-    gulp.watch(['html/{layouts,includes,helpers,data}/**/*'], ['compile-html:reset','compile-html']);
-    gulp.watch(['./src/{layouts,partials,helpers,data}/**/*'], [panini.refresh]);
-});
+function watch() {
+    gulp.watch('scss/**/*', gulp.series(compileScss, browser.reload));
+    gulp.watch('sass/**/*', gulp.series(compileSass, browser.reload));
+    gulp.watch('js/**/*', gulp.series(copyJs, browser.reload));
+    gulp.watch('html/pages/**/*', compileHtml);
+    gulp.watch('images/**/*', gulp.series(copyImages, browser.reload));
+    gulp.watch(['html/{layouts,includes,helpers,data}/**/*'], gulp.series(compileHtmlReset, compileHtml));
+    gulp.watch(['./src/{layouts,partials,helpers,data}/**/*'], panini.refresh);
+};
 
 // Erases the dist folder
-gulp.task('reset', function() {
-    rimraf('bulma/*');
-    rimraf('scss/*');
-    rimraf('assets/css/*');
-    rimraf('assets/fonts/*');
-    rimraf('images/*');
-});
+function reset() {
+    return el(['bulma/*', 'scss/*', 'assets/css/*', 'assets/fonts/*', 'images/*']);
+};
+exports.reset = reset;
 
 // Erases the dist folder
-gulp.task('clean', function() {
-    rimraf('_site');
-});
+function clean() {
+    return del('_site');
+};
 
 // Copy Bulma filed into Bulma development folder
-gulp.task('setupBulma', function() {
+function setupBulma() {
     //Get Bulma from node modules
-    gulp.src([nodepath + 'bulma/*.sass']).pipe(gulp.dest('bulma/'));
-    gulp.src([nodepath + 'bulma/**/*.sass']).pipe(gulp.dest('bulma/'));
-});
+    const a = gulp.src([nodepath + 'bulma/*.sass']).pipe(gulp.dest('bulma/'));
+    const b = gulp.src([nodepath + 'bulma/**/*.sass']).pipe(gulp.dest('bulma/'));
+    return merge(a, b);
+};
 
 // Copy assets
-gulp.task('copy', function() {
+function copy() {
     //Copy other external css assets
-    gulp.src(['assets/css/*.css']).pipe(gulp.dest('_site/assets/css/'));
+    const a = gulp.src(['assets/css/*.css']).pipe(gulp.dest('_site/assets/css/'));
     //Copy other external font assets
-    gulp.src(['assets/fonts/*']).pipe(gulp.dest('_site/assets/fonts/'));
-});
+    const b = gulp.src(['assets/fonts/*']).pipe(gulp.dest('_site/assets/fonts/'));
+    return merge(a, b);
+};
 
 //Theme Sass variables
 var sassOptions = {
@@ -72,21 +66,10 @@ var scssOptions = {
 };
 
 // Compile Bulma Sass
-gulp.task('compile-sass', function () {
+function compileSass () {
     var processors = [
         mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.is-true-hover ' }),
-        autoprefixer({
-            browsers: [
-                "Chrome >= 45",
-                "Firefox ESR",
-                "Edge >= 12",
-                "Explorer >= 10",
-                "iOS >= 9",
-                "Safari >= 9",
-                "Android >= 4.4",
-                "Opera >= 30"
-            ]
-        })//,
+        autoprefixer()//,
         //cssnano(),
     ];
     //Watch me get Sassy
@@ -96,24 +79,13 @@ gulp.task('compile-sass', function () {
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./_site/assets/css/'));
-});
+};
 
 // Compile Theme Scss
-gulp.task('compile-scss', function () {
+function compileScss() {
     var processors = [
         mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.is-true-hover ' }),
-        autoprefixer({
-            browsers: [
-                "Chrome >= 45",
-                "Firefox ESR",
-                "Edge >= 12",
-                "Explorer >= 10",
-                "iOS >= 9",
-                "Safari >= 9",
-                "Android >= 4.4",
-                "Opera >= 30"
-            ]
-        })//,
+        autoprefixer()//,
         //cssnano(),
     ];
     //Watch me get Sassy
@@ -123,11 +95,11 @@ gulp.task('compile-scss', function () {
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./_site/assets/css/'));
-});
+};
 
 // Compile Html
-gulp.task('compile-html', function() {
-    gulp.src('html/pages/**/*.html')
+function compileHtml() {
+    return gulp.src('html/pages/**/*.html')
         .pipe(panini({
         root: 'html/pages/',
         layouts: 'html/layouts/',
@@ -137,35 +109,44 @@ gulp.task('compile-html', function() {
     }))
         .pipe(gulp.dest('_site'))
         .on('finish', browser.reload);
-});
+};
 
-gulp.task('compile-html:reset', function(done) {
+function compileHtmlReset(done) {
     panini.refresh();
     done();
-});
+};
 
 // Compile js from node modules
-gulp.task('compile-js', function() {
+function compileJs() {
     return gulp.src([ 
         nodepath + 'jquery/dist/jquery.min.js', 
         nodepath + 'feather-icons/dist/feather.min.js',
     ])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./_site/assets/js/'));
-});
+};
 
 //Copy Theme js to production site
-gulp.task('copy-js', function() {
-    gulp.src('js/**/*.js')
+function copyJs() {
+    return gulp.src('js/**/*.js')
         .pipe(gulp.dest('./_site/assets/js/'));
-});
+};
 
 //Copy images to production site
-gulp.task('copy-images', function() {
-    gulp.src('images/**/*')
+function copyImages() {
+    return gulp.src('images/**/*')
         .pipe(gulp.dest('./_site/assets/images/'));
-});
+};
 
-gulp.task('init', ['setupBulma']);
-gulp.task('build', ['clean','copy','compile-js', 'copy-js', 'compile-sass', 'compile-scss', 'compile-html', 'copy-images']);
-gulp.task('default', ['server', 'watch']);
+exports.init = setupBulma;
+
+const build = gulp.series(clean, copy, compileJs, copyJs, compileSass, compileScss, compileHtml, copyImages);
+exports.build = build;
+
+// Starts a BrowerSync instance
+const server = gulp.series(build, function(){
+    browser.init({server: './_site', port: port});
+});
+exports.server = server;
+
+exports.default = gulp.parallel(server, watch);
