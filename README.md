@@ -1,4 +1,4 @@
-# Fresh Landing page
+# Fresh Landing page (gulp 3 version)
 ![](https://cssninja.io/storage/app/media/external/fresh/fresh-hero-ui8.png)
 
 Fresh is a one page landing page starter built by [Css Ninja Studio](https://cssninja.io) . Fresh is licensed under the MIT license.
