@@ -3,7 +3,7 @@
 
 Fresh is a one page landing page starter built by [Css Ninja Studio](https://cssninja.io). Fresh is licensed under the MIT license.
 
-You can access the demo [here](https://cssninjastudio.github.io/fresh/).
+You can access the full demo [here](https://cssninjastudio.github.io/fresh/).
 
 ## Details
 
@@ -56,7 +56,7 @@ If you've found an issue or a bug, you can report it in the issues section of th
 
 ## More
 
-You liked Fresh? Find more premium bulma templates on [Css Ninja](https://cssninja.io/category/all).
+You liked Fresh? Find more premium bulma templates on [Css Ninja](https://cssninja.io/category/all) and explore your views.
 
 Check also our premium Envato bulma themes [Css Ninja](https://cssninja.io/themes).
 
