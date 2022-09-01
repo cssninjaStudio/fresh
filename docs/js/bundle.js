@@ -4650,26 +4650,7 @@ function getUrlParams(param) {
   return urlParams.get(param);
 }
 
-function switchDemoImages(environment) {
-  if (environment === "development") {
-    var targets = document.querySelectorAll("[data-demo-src]");
-    var bgTargets = document.querySelectorAll("[data-demo-background]");
 
-    if (typeof targets != "undefined" && targets != null) {
-      for (var i = 0, len = targets.length; i < len; i++) {
-        var demoUrl = targets[i].getAttribute("data-demo-src");
-        targets[i].setAttribute("src", demoUrl);
-      }
-    }
-
-    if (typeof bgTargets != "undefined" && bgTargets != null) {
-      for (var i = 0, len = bgTargets.length; i < len; i++) {
-        var demoBgUrl = bgTargets[i].getAttribute("data-demo-background");
-        bgTargets[i].setAttribute("data-background", demoBgUrl);
-      }
-    }
-  }
-}
 
 function insertBgImages() {
   var targets = document.querySelectorAll("[data-background]");

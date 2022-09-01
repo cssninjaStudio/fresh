@@ -4,27 +4,6 @@ export function getUrlParams(param) {
   return urlParams.get(param);
 }
 
-export function switchDemoImages(environment) {
-  if (environment === "development") {
-    const targets = document.querySelectorAll("[data-demo-src]");
-    const bgTargets = document.querySelectorAll("[data-demo-background]");
-
-    if (typeof targets != "undefined" && targets != null) {
-      for (var i = 0, len = targets.length; i < len; i++) {
-        let demoUrl = targets[i].getAttribute("data-demo-src");
-        targets[i].setAttribute("src", demoUrl);
-      }
-    }
-
-    if (typeof bgTargets != "undefined" && bgTargets != null) {
-      for (var i = 0, len = bgTargets.length; i < len; i++) {
-        let demoBgUrl = bgTargets[i].getAttribute("data-demo-background");
-        bgTargets[i].setAttribute("data-background", demoBgUrl);
-      }
-    }
-  }
-}
-
 export function insertBgImages() {
   const targets = document.querySelectorAll("[data-background]");
 
@@ -46,14 +25,13 @@ export function initModals() {
         console.log("click modal");
         var modalID = this.getAttribute("data-modal");
         document.querySelector("#" + modalID).classList.add("is-active");
-        const scrollY = document.documentElement.style.getPropertyValue(
-          "--scroll-y"
-        );
+        const scrollY =
+          document.documentElement.style.getPropertyValue("--scroll-y");
         const body = document.body;
         body.style.width = "100%";
-        body.style.paddingRight  = "15px";
+        body.style.paddingRight = "15px";
         body.style.position = "fixed";
-        
+
         body.style.top = `-${scrollY}`;
       });
     }
@@ -67,7 +45,7 @@ export function initModals() {
         const body = document.body;
         const scrollY = body.style.top;
         body.style.position = "";
-        body.style.paddingRight  = "";
+        body.style.paddingRight = "";
         body.style.width = "";
         body.style.top = "";
         window.scrollTo(0, parseInt(scrollY || "0") * -1);

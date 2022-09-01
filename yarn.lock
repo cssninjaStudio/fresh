@@ -2,15 +2,20 @@
 # yarn lockfile v1
 
 
-"@alpinejs/intersect@^3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@alpinejs/intersect/-/intersect-3.9.0.tgz#fe5f005a8552753a4d2368f8021b24d1a16cfbf0"
-  integrity sha512-A8cvogNsgGNedNvlsMzHObd/B8As6xfwz4hRlipDmxM48exsTfYC1+18/pIeMbHlfphiYUIOMPMJYn8PINJoDA==
+"@alpinejs/collapse@^3.10.2":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@alpinejs/collapse/-/collapse-3.10.3.tgz#ffadf065e4bdd3a715916f8f517f81ab5d735745"
+  integrity sha512-AG0OwpOgOB2xt3dBYJUijkXrjzDtonni7PKzqgYwk4k9pbz9QRjmQl4TY7ACz1gjgI2kAzMbgJIvbKb6J4XL0w==
 
-"@alpinejs/persist@^3.7.1":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@alpinejs/persist/-/persist-3.9.0.tgz#2e0149e7d28dd543520d480c0abbd163e87fa3b6"
-  integrity sha512-WDodM93jC++L/oJnBSeES0mlfHbOhvxJ9WY8FTEwJBpzNlOMSoIK6LupRx35793sy5Xw7GL97hoV4hMBUvsO/Q==
+"@alpinejs/intersect@^3.10.2":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@alpinejs/intersect/-/intersect-3.10.3.tgz#9aebf43b40e02b0f53e244229472cc3f1d1ed304"
+  integrity sha512-vMRvhbMJzS1tupb2a/3GF5H+gLxxWaXJpcxJlfSHrV2JTb+RFWOJIkL/63JpPPGibtpaNBDrx3hsRN0CJ4d5mw==
+
+"@alpinejs/persist@^3.10.2":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@alpinejs/persist/-/persist-3.10.3.tgz#4d65154d9318b53c1b974fb078532f5f1323b50a"
+  integrity sha512-c5BWcCn4RHPtkeNEe0Mj99FuGuqcBgD1MBmYg8zKEFIjuu0bePd5LkfL8I8gVhrPIL2Ip7xXnREaWK6rVvUWSA==
 
 "@babel/cli@7.16.0":
   version "7.16.0"
@@ -987,11 +992,6 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@stencil/core@~2.10.0":
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.10.0.tgz#acf44b9ae6578a20f0d09bf94296e833beadc885"
-  integrity sha512-15rWMTPQ/sp0lSV82HVCXkIya3QLN+uBl7pqK4JnTrp4HiLrzLmNbWjbvgCs55gw0lULbCIGbRIEsFz+Pe/Q+A==
-
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.3.0.tgz#fe98a93fe789247e998c75e74e9c7c63217aa276"
@@ -1095,10 +1095,17 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-alpinejs@^3.0, alpinejs@^3.9.0:
+alpinejs@^3.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.9.0.tgz#02d37e0221c2b4aa5dcada8025ed843b4749dad5"
   integrity sha512-Dy8YOCR/BZ6WxKrfml/NCSX/JPBY8wKMqWmlyIbaneE98V9y8ZjSzv+g7VrXCkiDob1t8gf+lVNmH/tX0jfuYg==
+  dependencies:
+    "@vue/reactivity" "~3.1.1"
+
+alpinejs@^3.10.2:
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.10.3.tgz#4072c5ec01adf58b31a0e8e13e4ccb1382c1d112"
+  integrity sha512-nt/w4hLq9pPaexCsHmO5zV5Alvq4yu9n0Iclti6aV0HmiqLWH/axUb0pn8z3XVuVNcj8EOXOQw+WpwPzMzLBWg==
   dependencies:
     "@vue/reactivity" "~3.1.1"
 
@@ -1886,10 +1893,10 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bulma@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.9.3.tgz#ddccb7436ebe3e21bf47afe01d3c43a296b70243"
-  integrity sha512-0d7GNW1PY4ud8TWxdNcP6Cc8Bu7MxcntD/RRLGWuiw/s0a9P+XlH/6QoOIrmbj6o8WWJzJYhytiu9nFjTszk1g==
+bulma@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.9.4.tgz#0ca8aeb1847a34264768dba26a064c8be72674a1"
+  integrity sha512-86FlT5+1GrsgKbPLRRY7cGDg8fsJiP/jzTqXXVqiUZZ2aZT8uemEOHlU1CDU+TxklPEZ11HZNNWclRBBecP4CQ==
 
 bytes@3.1.2:
   version "3.1.2"
@@ -2167,11 +2174,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
-
-codemirror@^5.58.3:
-  version "5.65.2"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.65.2.tgz#5799a70cb3d706e10f60e267245e3a75205d3dd9"
-  integrity sha512-SZM4Zq7XEC8Fhroqe3LxbEEX1zUPWH1wMr5zxiBuiUF64iYOUH/JI88v4tBag8MiBS8B8gRv8O1pPXGYXQ4ErA==
 
 collection-map@^1.0.0:
   version "1.0.0"
@@ -4489,13 +4491,6 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
   integrity sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
-
-ionicons@^5.2.3:
-  version "5.5.4"
-  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-5.5.4.tgz#5fef0c44038a630f5bb5f9a7dc83ec158bab95b1"
-  integrity sha512-3ph8X9my3inhabWEZ7N0XRA0MnnNQ1v9a602mLNgWsIXnxE9G5BybIZ/pws/OZZ/hoNlvSjk801N03yL9/FNgQ==
-  dependencies:
-    "@stencil/core" "~2.10.0"
 
 irregular-plurals@^3.2.0:
   version "3.3.0"

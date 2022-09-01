@@ -17,14 +17,9 @@ Alpine.persistedStore("app", {
 //Start Alpine JS
 Alpine.start();
 
-import { env } from "./libs/utils/constants";
 import { initPageLoader } from "./libs/components/pageloader/pageloader";
-import {
-  switchDemoImages,
-  insertBgImages,
-  initModals,
-} from "./libs/utils/utils";
-import './libs/components'
+import { insertBgImages, initModals } from "./libs/utils/utils";
+import "./libs/components";
 
 const feather = require("feather-icons");
 
@@ -32,9 +27,6 @@ const showPageloader = initPageLoader();
 
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
-    //Switch demo images
-    const changeImages = switchDemoImages(env);
-
     //Switch backgrounds
     const changeBackgrounds = insertBgImages();
 
