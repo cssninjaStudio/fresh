@@ -3,16 +3,16 @@
 //Alpine JS and plugins import
 import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
-import Fern from "@ryangjchandler/fern";
+import persist from "@alpinejs/persist";
 
 window.Alpine = Alpine;
 //Init intersect plugin
 Alpine.plugin(intersect);
-//Init Fern plugin
-Alpine.plugin(Fern);
-//Init Fern persisted store
-Alpine.persistedStore("app", {
-  isSiderbarOpen: false,
+//Init persist plugin
+Alpine.plugin(persist);
+//Init store
+Alpine.store("app", {
+  isSiderbarOpen: Alpine.$persist(false),
 });
 //Start Alpine JS
 Alpine.start();

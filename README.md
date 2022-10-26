@@ -7,7 +7,7 @@
 
 ## ✌️ preview
 
-Check out the live demo by clicking [here](https://cssninjastudio.github.io/fresh/). 
+Check out the live demo by clicking [here](https://fresh.cssninja.io). 
 Fresh is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.com/alpinejs/alpine).
 
 ## 👍 Features
@@ -19,16 +19,22 @@ Fresh is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.com
 
 ## 👌 Usage
 
-1. Install Dev Depedencies
+1. Install Depedencies
 
 ```sh
-yarn install
+pnpm i
 ```
 
-2. To start development server
+2. Run in dev mode
 
 ```sh
-yarn dev
+pnpm dev
+```
+
+3. Or build source
+
+```sh
+pnpm build
 ```
 
 ## 🍔 Issues
@@ -43,9 +49,7 @@ If you've found an issue or a bug, you can report it in the issues section of th
 
 ## 🎉 More
 
-You liked Fresh? Check also our other premium Envato bulma themes [Css Ninja](https://cssninja.io/themes).
-
-Find more premium bulma templates on [Css Ninja](https://cssninja.io/category/all).
+Find more premium themes and templates on [Css Ninja](https://cssninja.io/).
 
 ## 🚀 About Us
 

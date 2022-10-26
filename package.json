@@ -2,20 +2,28 @@
   "name": "fresh",
   "version": "4.0.1",
   "description": "Fresh - Bulma + Alpine JS landing page",
-  "main": "gulpfile.js",
+  "author": {
+    "name": "cssninjaStudio <hello@cssninja.io> (https://cssninja.io)"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "build:update-bulma-colors": "bulma-css-vars"
+  },
+  "type": "commonjs",
+  "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
-    "@alpinejs/intersect": "^3.10.2",
-    "@alpinejs/persist": "^3.10.2",
-    "@alpinejs/collapse": "^3.10.2",
-    "@ryangjchandler/fern": "^0.1.0",
-    "alpinejs": "^3.10.2",
-    "bulma": "^0.9.4",
-    "js-datepicker": "^5.16.0",
-    "notyf": "^3.9.0",
-    "feather-icons": "^4.24.0",
-    "plyr": "^3.5.6",
-    "postcss": "^8.3.0",
-    "simplebar": "^5.3.3"
+    "@alpinejs/collapse": "3.10.4",
+    "@alpinejs/intersect": "3.10.4",
+    "@alpinejs/persist": "3.10.4",
+    "alpinejs": "3.10.4",
+    "bulma": "0.9.4",
+    "js-datepicker": "5.16.0",
+    "notyf": "3.9.0",
+    "feather-icons": "4.24.0",
+    "plyr": "3.5.6",
+    "postcss": "8.3.0",
+    "simplebar": "5.3.9"
   },
   "devDependencies": {
     "@babel/cli": "7.16.0",
@@ -24,49 +32,21 @@
     "@babel/register": "7.16.0",
     "autoprefixer": "10.4.0",
     "babelify": "10.0.0",
-    "browser-sync": "2.27.7",
+    "browser-sync": "2.27.10",
     "browserify": "17.0.0",
     "del": "6.0.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "8.0.0",
-    "gulp-clean-css": "4.3.0",
     "gulp-concat": "2.6.1",
-    "gulp-imagemin": "8.0.0",
-    "gulp-postcss": "9.0.0",
-    "gulp-purgecss": "4.0.3",
+    "gulp-postcss": "9.0.1",
     "gulp-replace": "1.1.3",
-    "gulp-sass": "5.0.0",
+    "gulp-sass": "5.1.0",
     "gulp-sourcemaps": "3.0.0",
-    "gulp-uglify": "3.0.2",
     "gulp-webp": "4.0.1",
     "log-symbols": "4.0.0",
     "node-bourbon": "4.2.8",
     "panini": "1.7.2",
     "sass": "1.39.2",
     "vinyl-source-stream": "2.0.0"
-  },
-  "scripts": {
-    "dev": "gulp",
-    "build": "gulp prod",
-    "prod": "gulp prod"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/"
-  },
-  "type": "module",
-  "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
-  "keywords": [
-    "gulp",
-    "gulp4",
-    "bulma",
-    "bulmacss",
-    "sass"
-  ],
-  "author": "Css Ninja",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cssninjaStudio/fresh"
-  },
-  "homepage": "https://github.com/cssninjaStudio/fresh"
+  }
 }

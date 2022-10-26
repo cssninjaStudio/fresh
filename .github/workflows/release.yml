@@ -1,0 +1,85 @@
+name: release
+on:
+  # Automatically run when a semver tag is pushed
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    # setup strategy matrix, so we can share same pnpm cache
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [18]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # Checkout action retreive the source (git clone)
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # needed to retreive all git history
+
+      # Enable corepack, note that nodejs is already installed
+      - run: corepack enable
+
+      # Setup pnpm with cache
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      # Compute tag and capitalized product name
+      - id: meta
+        name: release meta
+        run: |
+          project=${GITHUB_REPOSITORY#*/}
+          echo ::set-output name=project::${project}
+          echo ::set-output name=project-capitalized::${project^}
+          echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+
+      # This is where we generate releases assets.
+      # It use a github action in the current directory 
+      # which contains a shell script to create the archive. 
+      # The archive path is stored in the output action
+      - id: build_template
+        name: build release template
+        uses: ./.github/actions/build-template-action
+        with:
+          tag: ${{ steps.meta.outputs.tag }}
+          project: ${{ steps.meta.outputs.project }}
+
+      # We re-generate the changelog using a subset of standard-version
+      # The content is generated in a temp /CHANGELOG_RELEASE.md file
+      # It is used to generate the body of the github release
+      - id: changelog
+        name: release changelog
+        run: |
+          pnpm dlx conventional-changelog-cli -p conventionalcommits -r 2 -o ${{ github.workspace }}/CHANGELOG_RELEASE.md
+          cat ${{ github.workspace }}/CHANGELOG_RELEASE.md
+
+      # Prepare the draft github release
+      - id: create_release
+        name: create github draft release
+        uses: softprops/action-gh-release@v1
+        with:
+          # Use outputs from meta and changelog
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.project-capitalized }} ${{ steps.meta.outputs.tag }}
+          body_path: ${{ github.workspace }}/CHANGELOG_RELEASE.md
+          prerelease: false
+          # The draft is required to allow file upload
+          draft: true
+          fail_on_unmatched_files: true
+          # Here we bind files built by custom actions to the release
+          files: |
+            ${{ github.workspace }}/${{ steps.build_template.outputs.filepath }}
+
+      # Publish the github release
+      # Dojo listen to those events
+      - name: publish github draft release
+        uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}

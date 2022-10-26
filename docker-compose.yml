@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  fresh-demo:
+    image: digisquad/cssninja.fresh-demo:latest
+    networks:
+      - cssninja-services
+    restart: 'unless-stopped'
+    labels:
+      traefik.enable: true
+      traefik.docker.network: 'cssninja-services'
+      traefik.http.routers.fresh-demo.entrypoints: 'http'
+      traefik.http.routers.fresh-demo.rule: 'Host(`fresh.${HOST:-127.0.0.1.nip.io}`)'
+      traefik.http.routers.fresh-demo.middlewares: 'https-redirect@file'
+      traefik.http.services.fresh-demo-https.loadbalancer.server.port: 8080
+      traefik.http.routers.fresh-demo-https.rule: 'Host(`fresh.${HOST:-127.0.0.1.nip.io}`)'
+      traefik.http.routers.fresh-demo-https.tls: true
+      traefik.http.routers.fresh-demo-https.entrypoints: 'https'
+      traefik.http.routers.fresh-demo-https.tls.certresolver: 'http'
+
+networks:
+  cssninja-services:
+    external: true

@@ -1,9 +1,7 @@
 import gulp from "gulp";
-
 import gulpSass from "gulp-sass";
 import bourbon from "node-bourbon";
 import concat from "gulp-concat";
-import imagemin from "gulp-imagemin";
 import sourcemaps from "gulp-sourcemaps";
 import autoprefixer from "gulp-autoprefixer";
 import panini from "panini";
@@ -104,13 +102,8 @@ function previewReload(done) {
   done();
 }
 
-//Development Tasks
-function devHTML() {
-  return src(`${options.paths.src.base}/**/*.html`).pipe(dest(options.paths.dist.base));
-}
-
-//Optimize images
-function devImages() {
+//Copy images
+function copyImages() {
   return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
 }
 
@@ -147,7 +140,7 @@ function watchFiles() {
   watch(`${options.paths.src.base}/**/*.html`, series(compileHTML, previewReload));
   watch(['src/scss/**/*', 'src/scss/*'], compileSCSS);
   watch(`${options.paths.src.js}/**/*.js`, series(javascriptBuild, previewReload));
-  watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
+  watch(`${options.paths.src.img}/**/*`, series(copyImages, previewReload));
   console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
 }
 
@@ -164,13 +157,13 @@ const buildTasks = [
     concatCssPlugins, 
     compileSCSS, 
     javascriptBuild, 
-    devImages, 
+    copyImages, 
     compileHTML
   ),
 ]
 
 export const build = (done) => {
-  series(devClean, resetPages, parallel(...buildTasks, devImages))();
+  series(devClean, resetPages, parallel(...buildTasks, copyImages))();
   done();
 };
 

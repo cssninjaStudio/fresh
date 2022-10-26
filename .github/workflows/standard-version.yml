@@ -1,0 +1,44 @@
+name: standard-version
+on:
+  # Allow to be manually dispatched
+  workflow_dispatch:
+    inputs:
+      options:
+        description: 'standard-version options'
+  # Allow to be run via webhooks (Dojo will use this)
+  repository_dispatch:
+    types: [standard-version]
+
+jobs:
+  standard-version:
+    # setup strategy matrix, so we can share same pnpm cache
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [18]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # Checkout action retreive the source (git clone)
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # needed to retreive all git history
+          token: ${{ secrets.APP_GITHUB_TOKEN }}
+
+      # Enable corepack, note that nodejs is already installed
+      - run: corepack enable
+
+      # Setup pnpm with cache
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      # Run "standard-version", which may create a new tag
+      - run: |
+          git config user.name digisquad-bot
+          git config user.email admin@digisquad.io
+          pnpm dlx standard-version ${{ github.event.inputs.options }}
+          git push --follow-tags origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.APP_GITHUB_TOKEN }}
