@@ -49,7 +49,7 @@ If you've found an issue or a bug, you can report it in the issues section of th
 
 ## 🎉 More
 
-Find more premium themes and templates on [Css Ninja](https://cssninja.io/).
+Find more premium website and app templates on [Css Ninja](https://cssninja.io/).
 
 ## 🚀 About Us
 
