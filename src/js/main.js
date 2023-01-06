@@ -1,39 +1,41 @@
 "use strict";
 
 //Alpine JS and plugins import
-import Alpine from "alpinejs";
-import intersect from "@alpinejs/intersect";
+import Alpine from "alpinejs"
+import intersect from "@alpinejs/intersect"
+import collapse from '@alpinejs/collapse';
 import persist from "@alpinejs/persist";
+import Iconify from '@iconify/iconify';
 
-window.Alpine = Alpine;
+window.Alpine = Alpine
 //Init intersect plugin
-Alpine.plugin(intersect);
+Alpine.plugin(intersect)
 //Init persist plugin
-Alpine.plugin(persist);
+Alpine.plugin(persist)
+//Init collapse plugin
+Alpine.plugin(collapse);
 //Init store
 Alpine.store("app", {
-  isSiderbarOpen: Alpine.$persist(false),
+  init() {
+    this.on = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  },
+  isDark: Alpine.$persist(false),
+  isSidebarOpened: Alpine.$persist(false),
+  isSidebarOpenedMobile: Alpine.$persist(false),
+  activeSidebar: Alpine.$persist("dashboard"),
+  activeSidebarMenu: Alpine.$persist(""),
+  isPanelOpened: Alpine.$persist(false),
 });
 //Start Alpine JS
-Alpine.start();
+Alpine.start()
 
-import { initPageLoader } from "./libs/components/pageloader/pageloader";
-import { insertBgImages, initModals } from "./libs/utils/utils";
+import { insertBgImages } from "./libs/utils/utils";
 import "./libs/components";
-
-const feather = require("feather-icons");
-
-const showPageloader = initPageLoader();
 
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
+
     //Switch backgrounds
     const changeBackgrounds = insertBgImages();
-
-    //Feather Icons
-    const featherIcons = feather.replace();
-
-    // Add modal windows
-    const modals = initModals();
   }
 };

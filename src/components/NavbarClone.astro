@@ -1,0 +1,120 @@
+<nav
+  x-data="initNavbar()"
+  x-on:scroll.window="scroll()"
+  id="navbar-clone"
+  class="navbar is-fresh is-transparent"
+  role="navigation"
+  aria-label="main navigation"
+  :class="{
+  'is-active': scrolled,
+  '': !scrolled
+}"
+>
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cssninja.io">
+        <img src="/img/logo/fresh-alt.svg" alt="" width="112" height="28" />
+      </a>
+
+      <a
+        @click="openSidebar()"
+        class="navbar-item is-hidden-desktop is-hidden-tablet"
+      >
+        <div
+          id="menu-icon-wrapper"
+          class="menu-icon-wrapper"
+          style="visibility: visible;"
+          :class="{
+                  'open': $store.app.isSiderbarOpen,
+                  '': !$store.app.isSiderbarOpen
+              }"
+        >
+          <svg width="1000px" height="1000px">
+            <path
+              class="path1"
+              d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"
+            ></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path
+              class="path3"
+              d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"
+            ></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+
+      <div class="navbar-burger" @click="openMobileMenu()">
+        <span class="menu-toggle">
+          <span
+            class="icon-box-toggle"
+            :class="{
+                      'active': mobileOpen,
+                      '': !mobileOpen
+                  }"
+          >
+            <span class="rotate">
+              <i class="icon-line-top"></i>
+              <i class="icon-line-center"></i>
+              <i class="icon-line-bottom"></i>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div
+      id="cloned-navbar-menu"
+      class="navbar-menu is-fixed"
+      :class="{
+          'is-active': mobileOpen,
+          '': !mobileOpen
+      }"
+    >
+      <div class="navbar-start">
+        <a @click="openSidebar()" class="navbar-item is-hidden-mobile">
+          <div
+            id="cloned-menu-icon-wrapper"
+            class="menu-icon-wrapper"
+            style="visibility: visible;"
+            :class="{
+                      'open': $store.app.isSiderbarOpen,
+                      '': !$store.app.isSiderbarOpen
+                  }"
+          >
+            <svg width="1000px" height="1000px">
+              <path
+                class="path1"
+                d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"
+              ></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path
+                class="path3"
+                d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"
+              ></path>
+            </svg>
+            <button id="cloned-menu-icon-trigger" class="menu-icon-trigger"
+            ></button>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a href="#" class="navbar-item is-secondary"> Features</a>
+        <a href="#" class="navbar-item is-secondary"> Pricing</a>
+        <a
+          href="#"
+          class="navbar-item is-secondary modal-trigger"
+          data-modal="auth-modal"
+        >
+          Log in
+        </a>
+        <a class="navbar-item">
+          <span class="button signup-button secondary-btn raised">
+            Sign up
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

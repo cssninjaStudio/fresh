@@ -1,0 +1,114 @@
+[
+  {
+      "type": "user",
+      "title": "Mary Smith",
+      "content": "Los Angeles",
+      "photoUrl": "/img/avatars/42.jpg",
+      "color": null
+  },
+  {
+      "type": "user",
+      "title": "Janet Briggs",
+      "content": "Los Angeles",
+      "photoUrl": null,
+      "color": "#ff9b17"
+  },
+  {
+      "type": "user",
+      "title": "Paul Walters",
+      "content": "San Francisco",
+      "photoUrl": null,
+      "color": "#3bf486"
+  },
+  {
+      "type": "user",
+      "title": "Kristie Wang",
+      "content": "San Francisco",
+      "photoUrl": null,
+      "color": "#7938f4"
+  },
+  {
+      "type": "user",
+      "title": "Sheryl Allen",
+      "content": "San Diego",
+      "photoUrl": null,
+      "color": "#e73c7e"
+  },
+  {
+      "type": "user",
+      "title": "Alex Walsh",
+      "content": "Irvine",
+      "photoUrl": "/img/avatars/2.jpg",
+      "color": null
+  },
+  {
+      "type": "user",
+      "title": "Adam Klinsky",
+      "content": "Irvine",
+      "photoUrl": "/img/avatars/6.jpg",
+      "color": null
+  },
+  {
+      "type": "user",
+      "title": "Christina Xi",
+      "content": "Mystic Falls",
+      "photoUrl": "/img/avatars/5.jpg",
+      "color": null
+  },
+  {
+      "type": "user",
+      "title": "Tommy Brucks",
+      "content": "Los Angeles",
+      "photoUrl": "/img/avatars/7.jpg",
+      "color": null
+  },
+  {
+      "type": "user",
+      "title": "Sally Mitchells",
+      "content": "San Francisco",
+      "photoUrl": "/img/avatars/21.jpg",
+      "color": null
+  },
+  {
+      "type": "file",
+      "title": "INV-49465",
+      "content": "Pending invoice",
+      "photoUrl": "/img/icons/1.svg",
+      "color": null
+  },
+  {
+      "type": "file",
+      "title": "INV-49789",
+      "content": "Pending invoice",
+      "photoUrl": "/img/icons/1.svg",
+      "color": null
+  },
+  {
+      "type": "transaction",
+      "title": "TR-8066",
+      "content": "Transaction amount: + $874.99",
+      "photoUrl": "/img/icons/2.svg",
+      "color": null
+  },
+  {
+      "type": "transaction",
+      "title": "TR-8067",
+      "content": "Transaction amount: + $1042.99",
+      "photoUrl": "/img/icons/2.svg",
+      "color": null
+  },
+  {
+      "type": "transaction",
+      "title": "TR-9078",
+      "content": "Transaction amount: - $2500.00",
+      "photoUrl": "/img/icons/2.svg",
+      "color": null
+  },
+  {
+      "type": "transaction",
+      "title": "TR-8066",
+      "content": "Transaction amount: - $139.99",
+      "photoUrl": "/img/icons/2.svg",
+      "color": null
+  }
+]

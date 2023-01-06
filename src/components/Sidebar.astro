@@ -1,0 +1,94 @@
+<div
+  x-data="initSidebar()"
+  class="sidebar"
+  :class="{
+  'is-active': $store.app.isSiderbarOpen,
+  '': !$store.app.isSiderbarOpen
+}"
+>
+  <div class="sidebar-header">
+    <img src="/img/logo/fresh-square.svg" />
+    <a @click="closeSidebar()" class="sidebar-close" href="javascript:void(0);"
+      ><i class="iconify" data-icon="lucide:x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li><span class="nav-section-title"></span></li>
+      <li
+        @click="openSidebarMenu($event)"
+        data-menu="sidebar-menu-1"
+        class="have-children"
+        :class="{
+              'active': openedMenu === 'sidebar-menu-1',
+              '': openedMenu != 'sidebar-menu-1'
+          }"
+      >
+        <a href="#">
+          <span class="material-icons">apps</span>
+          <span>Apps</span>
+        </a>
+        <ul x-show.transition="openedMenu === 'sidebar-menu-1'">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+      </li>
+      <li
+        @click="openSidebarMenu($event)"
+        data-menu="sidebar-menu-2"
+        class="have-children"
+        :class="{
+              'active': openedMenu === 'sidebar-menu-2',
+              '': openedMenu != 'sidebar-menu-2'
+          }"
+      >
+        <a href="#">
+          <span class="material-icons">duo</span>
+          <span>Messages</span>
+        </a>
+        <ul x-show.transition="openedMenu === 'sidebar-menu-2'">
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">Compose</a></li>
+          <li><a href="#">Video</a></li>
+        </ul>
+      </li>
+      <li
+        @click="openSidebarMenu($event)"
+        data-menu="sidebar-menu-3"
+        class="have-children"
+        :class="{
+              'active': openedMenu === 'sidebar-menu-3',
+              '': openedMenu != 'sidebar-menu-3'
+          }"
+      >
+        <a href="#">
+          <span class="material-icons">insert_photo</span>
+          <span>Media</span>
+        </a>
+        <ul x-show.transition="openedMenu === 'sidebar-menu-3'">
+          <li><a href="#">Library</a></li>
+          <li><a href="#">Upload</a></li>
+        </ul>
+      </li>
+      <li
+        @click="openSidebarMenu($event)"
+        data-menu="sidebar-menu-4"
+        class="have-children"
+        :class="{
+              'active': openedMenu === 'sidebar-menu-4',
+              '': openedMenu != 'sidebar-menu-4'
+          }"
+      >
+        <a href="#">
+          <span class="material-icons">policy</span>
+          <span>Settings</span>
+        </a>
+        <ul x-show.transition="openedMenu === 'sidebar-menu-4'">
+          <li><a href="#">User settings</a></li>
+          <li><a href="#">App settings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
