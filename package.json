@@ -7,6 +7,10 @@
   "author": {
     "name": "cssninjaStudio <hello@cssninja.io> (https://cssninja.io)"
   },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
   "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "dev": "astro dev",
