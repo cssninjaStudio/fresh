@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/cssninjaStudio/fresh/compare/v5.0.0...v5.1.0) (2023-05-03)
+
+
+### Features
+
+* upgrade to astro 2 + add unplugin-fonts ([5163871](https://github.com/cssninjaStudio/fresh/commit/51638718e2b27a8ffb0852820adaf5d3c0d676b1))
+
 ## [5.0.0](https://github.com/cssninjaStudio/fresh/compare/v4.1.0...v5.0.0) (2023-01-06)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "fresh",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Fresh - Bulma + Alpine JS landing page",
   "type": "module",
   "private": true,
