@@ -35,8 +35,10 @@
     "simplebar": "6.2.5"
   },
   "devDependencies": {
+    "@fontsource-variable/nunito": "^5.0.9",
+    "@fontsource-variable/roboto-flex": "^5.0.8",
+    "@fontsource/material-icons": "^5.0.7",
     "autoprefixer": "10.4.15",
-    "npm-run-all": "4.1.5",
-    "unplugin-fonts": "^1.0.3"
+    "npm-run-all": "4.1.5"
   }
 }

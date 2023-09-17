@@ -3,7 +3,7 @@ Section Styles
 ========================================================================== */
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: $font;
 }
 
 h1,
@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: $font-heading;
 }
 
 //Sections
@@ -47,7 +47,7 @@ h6 {
 
   .title,
   .subtitle {
-    font-family: "Nunito", sans-serif;
+    font-family: $font-heading;
   }
 
   .subtitle {
@@ -73,7 +73,7 @@ h6 {
 
   .title,
   .subtitle {
-    font-family: "Nunito", sans-serif;
+    font-family: $font-heading;
   }
 
   .subtitle {

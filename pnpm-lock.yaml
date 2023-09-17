@@ -51,6 +51,15 @@ dependencies:
     version: 6.2.5
 
 devDependencies:
+  '@fontsource-variable/nunito':
+    specifier: ^5.0.9
+    version: 5.0.9
+  '@fontsource-variable/roboto-flex':
+    specifier: ^5.0.8
+    version: 5.0.8
+  '@fontsource/material-icons':
+    specifier: ^5.0.7
+    version: 5.0.7
   autoprefixer:
     specifier: 10.4.15
     version: 10.4.15(postcss@8.4.29)
@@ -738,6 +747,18 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/nunito@5.0.9:
+    resolution: {integrity: sha512-6SivBy9FfkcPJdc3MyMF1JZaWgWQL5BGmUst6gQbTAkHT1O4BmGxhW8/7v5NBa/Dh4K4dLOwXmz8zXbNddCQwQ==}
+    dev: true
+
+  /@fontsource-variable/roboto-flex@5.0.8:
+    resolution: {integrity: sha512-zSnE0htmk1tlKqVNfMGWJfxgLxLYQH9eYNvXFzWJ3GuDMXVBEiKuaYytkrItaP/svX3t5y8qsIXC+cpflsfvWQ==}
+    dev: true
+
+  /@fontsource/material-icons@5.0.7:
+    resolution: {integrity: sha512-QNEk24i1KhV1MoZqpLHfD+T90N2U8lzYxyeHbr6qAWTJG7KgOMib4TA+RonS9vtBT4sw59L9e9Wd1vebXxOhOQ==}
+    dev: true
 
   /@iconify/iconify@3.1.1:
     resolution: {integrity: sha512-1nemfyD/OJzh9ALepH7YfuuP8BdEB24Skhd8DXWh0hzcOxImbb1ZizSZkpCzAwSZSGcJFmscIBaBQu+yLyWaxQ==}
