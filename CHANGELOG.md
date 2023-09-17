@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/cssninjaStudio/fresh/compare/v5.1.0...v5.2.0) (2023-09-17)
+
+
+### Features
+
+* migrate to Astro 3 ([1e317ac](https://github.com/cssninjaStudio/fresh/commit/1e317ac221cf75f74df119aee39b06c766f5dcd5))
+* use variable fonts from fontsources ([c002955](https://github.com/cssninjaStudio/fresh/commit/c00295507774d988e2f7d332c382dc9dc7bca674))
+
+
+### Bug Fixes
+
+* upgrade engines to node 18 and pnpm 8 ([c77e2c3](https://github.com/cssninjaStudio/fresh/commit/c77e2c3a52c1b1257a5d2265d4c56ae56fd54c93))
+
 ## [5.1.0](https://github.com/cssninjaStudio/fresh/compare/v5.0.0...v5.1.0) (2023-05-03)
 
 
