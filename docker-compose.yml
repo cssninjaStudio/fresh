@@ -1,4 +1,6 @@
-version: '3.7'
+networks:
+  cssninja-services:
+    external: true
 
 services:
   fresh-demo:
@@ -18,6 +20,3 @@ services:
       traefik.http.routers.fresh-demo-https.entrypoints: 'https'
       traefik.http.routers.fresh-demo-https.tls.certresolver: 'http'
 
-networks:
-  cssninja-services:
-    external: true

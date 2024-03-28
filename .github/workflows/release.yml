@@ -7,16 +7,11 @@ on:
 
 jobs:
   release:
-    # setup strategy matrix, so we can share same pnpm cache
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [18]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       # Checkout action retreive the source (git clone)
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # needed to retreive all git history
 
@@ -24,9 +19,9 @@ jobs:
       - run: corepack enable
 
       # Setup pnpm with cache
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: "pnpm"
 
       # Compute tag and capitalized product name
@@ -61,7 +56,7 @@ jobs:
       # Prepare the draft github release
       - id: create_release
         name: create github draft release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           # Use outputs from meta and changelog
           tag_name: ${{ steps.meta.outputs.tag }}

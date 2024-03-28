@@ -1,4 +1,4 @@
-FROM bitnami/node:18 AS build
+FROM bitnami/node:20 AS build
 WORKDIR /app
 
 RUN corepack enable
@@ -12,7 +12,7 @@ COPY . .
 RUN pnpm build
 
 
-FROM bitnami/nginx:1.22 AS prod
+FROM bitnami/nginx:1.25 AS prod
 WORKDIR /app
 
 COPY --from=build /app/dist .

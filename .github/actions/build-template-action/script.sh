@@ -45,4 +45,4 @@ echo "- ${INPUT_PROJECT^} ${INPUT_TAG} template built :rocket:" >> $GITHUB_STEP_
 
 # This step is important, it set the "filepath" output variable
 # Will be accessible in workflow
-echo "::set-output name=filepath::${ARCHIVE}"
+echo "filepath=${ARCHIVE}" >> "$GITHUB_OUTPUT"
