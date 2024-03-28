@@ -29,9 +29,9 @@ jobs:
         name: release meta
         run: |
           project=${GITHUB_REPOSITORY#*/}
-          echo ::set-output name=project::${project}
-          echo ::set-output name=project-capitalized::${project^}
-          echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+          echo "PROJECT=${project}" >> "$GITHUB_OUTPUT"
+          echo "PROJECT_CAP=${project^}" >> "$GITHUB_OUTPUT"
+          echo "TAG=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
 
       # This is where we generate releases assets.
       # It use a github action in the current directory 
@@ -41,8 +41,8 @@ jobs:
         name: build release template
         uses: ./.github/actions/build-template-action
         with:
-          tag: ${{ steps.meta.outputs.tag }}
-          project: ${{ steps.meta.outputs.project }}
+          tag: ${{ steps.meta.outputs.TAG }}
+          project: ${{ steps.meta.outputs.PROJECT }}
 
       # We re-generate the changelog using a subset of standard-version
       # The content is generated in a temp /CHANGELOG_RELEASE.md file
@@ -59,8 +59,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           # Use outputs from meta and changelog
-          tag_name: ${{ steps.meta.outputs.tag }}
-          name: ${{ steps.meta.outputs.project-capitalized }} ${{ steps.meta.outputs.tag }}
+          tag_name: ${{ steps.meta.outputs.TAG }}
+          name: ${{ steps.meta.outputs.PROJECT_CAP }} ${{ steps.meta.outputs.TAG }}
           body_path: ${{ github.workspace }}/CHANGELOG_RELEASE.md
           prerelease: false
           # The draft is required to allow file upload
