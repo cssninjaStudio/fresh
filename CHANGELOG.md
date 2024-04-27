@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/cssninjaStudio/fresh/compare/v5.2.0...v5.3.0) (2024-04-27)
+
+
+### Features
+
+* migrate to iconify-icon, update dependencies ([126e938](https://github.com/cssninjaStudio/fresh/commit/126e938fc8ea22e4aac169594172b45738f89fc9))
+
+
+### Bug Fixes
+
+* material icon display ([0f6c01b](https://github.com/cssninjaStudio/fresh/commit/0f6c01b6e89597bc86b65ca49fd9a14edcd8da51))
+
 ## [5.2.0](https://github.com/cssninjaStudio/fresh/compare/v5.1.0...v5.2.0) (2023-09-17)
 
 
