@@ -8,14 +8,12 @@
 ## ✌️ preview
 
 Check out the live demo by clicking [here](https://fresh.cssninja.io). 
-Fresh is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.com/alpinejs/alpine).
+Fresh is built with [Astro](https://astro.build), [Bulma](https://bulma.io) and [Alpine JS](https://github.com/alpinejs/alpine).
 
 ## 👍 Features
 
-* Astro v3.x
-* Nodejs v18.x
-* Bulma v0.9.x
-* ES6 support
+* Astro v4.x
+* Bulma 0.9.x
 * Alpine v3.x
 
 ## 👌 Usage

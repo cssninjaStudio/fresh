@@ -1,16 +1,10 @@
-<div
-  x-data="initSidebar()"
-  class="sidebar"
-  :class="{
+<div x-data="initSidebar()" class="sidebar" :class=`{
   'is-active': $store.app.isSiderbarOpen,
   '': !$store.app.isSiderbarOpen
-}"
->
+}`>
   <div class="sidebar-header">
     <img src="/img/logo/fresh-square.svg" />
-    <a @click="closeSidebar()" class="sidebar-close" href="javascript:void(0);"
-      ><i class="iconify" data-icon="lucide:x"></i>
-    </a>
+    <a @click="closeSidebar()" class="sidebar-close" href="javascript:void(0);"><iconify-icon class="iconify" icon="lucide:x"></iconify-icon> </a>
   </div>
   <div class="inner">
     <ul class="sidebar-menu">
@@ -19,10 +13,10 @@
         @click="openSidebarMenu($event)"
         data-menu="sidebar-menu-1"
         class="have-children"
-        :class="{
-              'active': openedMenu === 'sidebar-menu-1',
-              '': openedMenu != 'sidebar-menu-1'
-          }"
+        :class=`{
+            'active': openedMenu === 'sidebar-menu-1',
+            '': openedMenu != 'sidebar-menu-1'
+        }`
       >
         <a href="#">
           <span class="material-icons">apps</span>
@@ -38,10 +32,10 @@
         @click="openSidebarMenu($event)"
         data-menu="sidebar-menu-2"
         class="have-children"
-        :class="{
-              'active': openedMenu === 'sidebar-menu-2',
-              '': openedMenu != 'sidebar-menu-2'
-          }"
+        :class=`{
+            'active': openedMenu === 'sidebar-menu-2',
+            '': openedMenu != 'sidebar-menu-2'
+        }`
       >
         <a href="#">
           <span class="material-icons">duo</span>
@@ -57,10 +51,10 @@
         @click="openSidebarMenu($event)"
         data-menu="sidebar-menu-3"
         class="have-children"
-        :class="{
-              'active': openedMenu === 'sidebar-menu-3',
-              '': openedMenu != 'sidebar-menu-3'
-          }"
+        :class=`{
+            'active': openedMenu === 'sidebar-menu-3',
+            '': openedMenu != 'sidebar-menu-3'
+        }`
       >
         <a href="#">
           <span class="material-icons">insert_photo</span>
@@ -75,10 +69,10 @@
         @click="openSidebarMenu($event)"
         data-menu="sidebar-menu-4"
         class="have-children"
-        :class="{
-              'active': openedMenu === 'sidebar-menu-4',
-              '': openedMenu != 'sidebar-menu-4'
-          }"
+        :class=`{
+            'active': openedMenu === 'sidebar-menu-4',
+            '': openedMenu != 'sidebar-menu-4'
+        }`
       >
         <a href="#">
           <span class="material-icons">policy</span>

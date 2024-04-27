@@ -193,15 +193,13 @@ Sidebar Styles
             pointer-events: none;
           }
 
-          > ul {
-            //display: none;
-          }
-
           ul {
             padding: 0px;
 
             li {
               a {
+                display: flex;
+                align-items: center;
                 color: $white;
                 background-color: darken($dark-grey, 5%);
                 padding-left: 62px;
@@ -220,7 +218,7 @@ Sidebar Styles
             &.material-icons {
               &:after {
                 position: absolute;
-                top: 20px;
+                top: 14px;
                 right: 30px;
                 content: "\e5cc";
                 color: $white;
