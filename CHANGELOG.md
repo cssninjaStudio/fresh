@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/cssninjaStudio/fresh/compare/v5.3.0...v5.4.0) (2026-09-30)
+
+
+### ⚖️ License
+
+* relicense under MIT ([36b0a9e](https://github.com/cssninjaStudio/fresh/commit/36b0a9e4b351c782c1dd4eeff416d5cc24ca436a))
+
 ## [5.3.0](https://github.com/cssninjaStudio/fresh/compare/v5.2.0...v5.3.0) (2024-04-27)
 
 
