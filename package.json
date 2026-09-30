@@ -11,7 +11,7 @@
     "node": ">=18",
     "pnpm": ">=8"
   },
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
