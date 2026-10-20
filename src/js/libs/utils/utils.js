@@ -22,6 +22,7 @@ export function initModals() {
   if (typeof targets != "undefined" && targets != null) {
     for (var i = 0, len = targets.length; i < len; i++) {
       targets[i].addEventListener("click", function (event) {
+        event.preventDefault();
         console.log("click modal");
         var modalID = this.getAttribute("data-modal");
         document.querySelector("#" + modalID).classList.add("is-active");

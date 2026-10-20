@@ -29,7 +29,7 @@ Alpine.store("app", {
 //Start Alpine JS
 Alpine.start()
 
-import { insertBgImages } from "./libs/utils/utils";
+import { insertBgImages, initModals } from "./libs/utils/utils";
 import "./libs/components";
 
 document.onreadystatechange = function () {
@@ -37,5 +37,6 @@ document.onreadystatechange = function () {
 
     //Switch backgrounds
     const changeBackgrounds = insertBgImages();
+    initModals();
   }
 };
