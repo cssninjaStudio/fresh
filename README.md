@@ -36,6 +36,8 @@ pnpm dev
 pnpm build
 ```
 
+4. Or deploy to Wasmer Edge: [![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=cssninjaStudio%2Ffresh) The link imports this public repository for building; it does not copy it into your GitHub account, so import your own copy or fork if you want to customize the site and redeploy on push. The root `Anybuild` file asks Wasmer's builder for the static Astro build (`pnpm run build`, served from `dist/`) instead of the dev server from the `start` script; if the import page shows a different preset, select the static Node build (node-static).
+
 ## 🍔 Issues
 
 If you've found an issue or a bug, you can report it in the issues section of this repository. Please try to follow these simple guidelines to report your issue:
